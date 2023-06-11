@@ -54,7 +54,7 @@
                                 <tr
                                     class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600">
                                     <td class="w-32 p-4">
-                                        <img src="{{ $item['url_img'] }}" alt="{{ $item['name'] }}"
+                                        <img src="{{  url('') }}{{ $item['url_img'] }}" alt="{{ $item['name'] }}"
                                             class="w-12 h-12 rounded-md">
                                     </td>
                                     <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">

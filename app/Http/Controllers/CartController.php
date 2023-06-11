@@ -19,7 +19,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\URL;
 use Carbon\Carbon;
 
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -59,7 +59,7 @@ class CartController extends Controller
         //identifier, name, quantity and price
         Cart::add('identifier', $product->name, $request->quantity, $product->price, [
             'product_id' => $product->id,
-            'url_img' => $product->getFirstMediaUrl('prod_imgs', 'gallery'),
+            'url_img' => explode(URL::to(''),$product->getFirstMediaUrl('prod_imgs', 'gallery'))[1],
         ]);
 
         return back()->with('success', 'Producto añadido a la cesta.');
