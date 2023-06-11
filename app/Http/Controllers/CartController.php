@@ -235,8 +235,8 @@ class CartController extends Controller
             $cart['items'][$item->name]['qty'] = $item->qty;
             $cart['items'][$item->name]['price'] = $item->price;
             $cart['items'][$item->name]['name'] = $item->name;
-            $cart['items'][$item->name]['url_img'] = $item->options->url_img;
-            $cart['items'][$item->name]['product_id'] = $item->options->product_id;
+            $cart['items'][$item->name]['url_img'] = $item->url_img;
+            $cart['items'][$item->name]['product_id'] = $item->product_id;
 
             $total = $total + ($item->qty * $item->price);
         }
@@ -274,8 +274,8 @@ class CartController extends Controller
                 $carts[$index]['items'][$item->name]['qty'] = $item->qty;
                 $carts[$index]['items'][$item->name]['price'] = $item->price;
                 $carts[$index]['items'][$item->name]['name'] = $item->name;
-                $carts[$index]['items'][$item->name]['url_img'] = $item->options->url_img;
-                $carts[$index]['items'][$item->name]['product_id'] = $item->options->product_id;
+                $carts[$index]['items'][$item->name]['url_img'] = $item->url_img;
+                $carts[$index]['items'][$item->name]['product_id'] = $item->product_id;
 
                 $total = $total + ($item->qty * $item->price);
             }
