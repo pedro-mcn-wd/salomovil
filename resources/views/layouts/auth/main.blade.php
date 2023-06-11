@@ -6,7 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    @vite(['resources/css/app.css','resources/js/app.js'])
+    {{-- @vite(['resources/css/app.css','resources/js/app.js']) --}}
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
 
     <title>@yield('title')</title>
 </head>
