@@ -230,7 +230,7 @@ class CartController extends Controller
         $cart['email'] = $order->user->email;
 
         $total = 0;
-        foreach (unserialize($shoppingcart->content) as $item) {
+        foreach (json_decode($shoppingcart->content) as $item) {
             $cart['items'][$item->name]['rowId'] = $item->rowId;
             $cart['items'][$item->name]['qty'] = $item->qty;
             $cart['items'][$item->name]['price'] = $item->price;
@@ -269,7 +269,7 @@ class CartController extends Controller
             // $carts[$index]['id'] = $sale->shoppingcart->id;
             // $carts[$index]['user_id'] = $sale->shoppingcart->identifier;
             $total = 0;
-            foreach (unserialize($sale->shoppingcart->content) as $item) {
+            foreach (json_decode($sale->shoppingcart->content) as $item) {
                 $carts[$index]['items'][$item->name]['rowId'] = $item->rowId;
                 $carts[$index]['items'][$item->name]['qty'] = $item->qty;
                 $carts[$index]['items'][$item->name]['price'] = $item->price;

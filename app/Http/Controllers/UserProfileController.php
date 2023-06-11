@@ -147,13 +147,13 @@ class UserProfileController extends Controller
         $cart['email'] = $order->user->email;
 
         $total = 0;
-        foreach (unserialize($shoppingcart->content) as $item) {
+        foreach (json_decode($shoppingcart->content) as $item) {
             $cart['items'][$item->name]['rowId'] = $item->rowId;
             $cart['items'][$item->name]['qty'] = $item->qty;
             $cart['items'][$item->name]['price'] = $item->price;
             $cart['items'][$item->name]['name'] = $item->name;
-            $cart['items'][$item->name]['url_img'] = $item->options->url_img;
-            $cart['items'][$item->name]['product_id'] = $item->options->product_id;
+            $cart['items'][$item->name]['url_img'] = $item->url_img;
+            $cart['items'][$item->name]['product_id'] = $item->product_id;
 
             $total = $total + ($item->qty * $item->price);
         }
