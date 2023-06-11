@@ -6,7 +6,7 @@
 
 @section('content')
 
-    <div class="flex-grow mb-10 h-full xl:max-w-screen-xl xl:-min-w-screen-xl 2xl:max-w-screen-2xl 2xl:-min-w-screen-2xl mx-auto">
+    <div class="flex-grow mb-10 h-full w-full xl:max-w-screen-xl xl:-min-w-screen-xl 2xl:max-w-screen-2xl 2xl:-min-w-screen-2xl mx-auto">
             {{-- categorias --}}
             <div>
                 @include('layouts.general.sidebar', ['categories' => $categories])
