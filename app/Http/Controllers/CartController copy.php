@@ -19,7 +19,6 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Collection;
 use Carbon\Carbon;
 
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -142,27 +141,7 @@ class CartController extends Controller
 
             DB::beginTransaction();
 
-            $items = session()->get('cart.default');
-            $cartSession = array();
-            $cont = 0;
-            foreach ($items as $value) {
-                $cartSession[$cont]['rowId'] = $value->rowId;
-                $cartSession[$cont]['qty'] = $value->qty;
-                $cartSession[$cont]['name'] = $value->name;
-                $cartSession[$cont]['price'] = $value->price;
-                $cartSession[$cont]['url_img'] = $value->options->url_img;
-                $cartSession[$cont]['product_id'] = $value->options->product_id;
-                $cont = $cont + 1;
-            }
-
-            $cartSessionJSON = json_encode($cartSession);
-
-            DB::table('shoppingcart')->insert([
-                'identifier' => Auth::id(),
-                'instance' => 'default',
-                'content' => $cartSessionJSON,
-                'created_at'=> new \DateTime()
-            ]);
+            Cart::store(Auth::id());
 
             $cart = DB::table('shoppingcart')->latest('id')->first();
             $cartId = $cart->id;
@@ -241,6 +220,7 @@ class CartController extends Controller
             $total = $total + ($item->qty * $item->price);
         }
         $cart['total'] = $total;
+        // dd($cart);
 
         return view('cart.admin.show_sale', compact('cart'));
     }

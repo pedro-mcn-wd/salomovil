@@ -102,8 +102,6 @@ class UserProfileController extends Controller
     public function seeShoppings(): View
     {
         $shoppingcarts = Shoppingcart::where('identifier', Auth::id())->get();
-        // dd($shoppingcarts);
-        // dd(unserialize($shoppingcarts->first()->content));
 
         $carts = array();
         $cont = 0;
@@ -117,13 +115,13 @@ class UserProfileController extends Controller
             $carts[$cont]['created_at'] = Carbon::parse($oneCart->created_at)->format('d/m/Y');
 
             $total = 0;
-            foreach (unserialize($oneCart->content) as $item) {
+            foreach (json_decode($oneCart->content) as $item) {
                 $carts[$cont]['items'][$item->name]['rowId'] = $item->rowId;
                 $carts[$cont]['items'][$item->name]['qty'] = $item->qty;
                 $carts[$cont]['items'][$item->name]['price'] = $item->price;
                 $carts[$cont]['items'][$item->name]['name'] = $item->name;
-                $carts[$cont]['items'][$item->name]['url_img'] = $item->options->url_img;
-                $carts[$cont]['items'][$item->name]['product_id'] = $item->options->product_id;
+                $carts[$cont]['items'][$item->name]['url_img'] = $item->url_img;
+                $carts[$cont]['items'][$item->name]['product_id'] = $item->product_id;
 
                 $total = $total + ($item->qty * $item->price);
             }
