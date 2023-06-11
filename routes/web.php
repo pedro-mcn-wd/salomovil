@@ -22,10 +22,6 @@ use Illuminate\Support\Facades\Artisan;
 |
 */
 
-Route::get('/linkstorage', function () {
-    Artisan::call('storage:link');
-});
-
 /* home */
 Route::get('/', [HomeController::class,'index'])->name('home');
 Route::get('/about_us', function(){

@@ -55,11 +55,16 @@ class CartController extends Controller
         }
 
         $product = Product::find($request->product_id);
+        if($product->getFirstMediaUrl('prod_imgs', 'gallery')){
+            $path_image = explode(URL::to(''),$product->getFirstMediaUrl('prod_imgs', 'gallery'))[1];
+        }else{
+            $path_image = '#';
+        }
 
         //identifier, name, quantity and price
         Cart::add('identifier', $product->name, $request->quantity, $product->price, [
             'product_id' => $product->id,
-            'url_img' => explode(URL::to(''),$product->getFirstMediaUrl('prod_imgs', 'gallery'))[1],
+            'url_img' => $path_image,
         ]);
 
         return back()->with('success', 'Producto añadido a la cesta.');
