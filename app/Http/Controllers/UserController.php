@@ -124,7 +124,7 @@ class UserController extends Controller
         ]);
 
         //Sending an email to the user to change the password.
-        // Password::sendResetLink(['email' => $request->email]);
+        Password::sendResetLink(['email' => $request->email]);
 
         return redirect()->route('users.index')->with('success', 'El usuario ha sido creado correctamente.');
     }
