@@ -9,6 +9,10 @@
     <title>@yield('title')</title>
     @vite(['resources/css/app.css','resources/js/app.js'])
 
+    {{-- he tenido que poner los cdns de Tailwindcss y Flowbite porque de lo contrario el despliegue no corre los estilos --}}
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
+
     <link rel="stylesheet" href="{{ asset('dist/css/dropify.min.css') }}">
     <style>
         body{
@@ -19,7 +23,7 @@
 
     @yield('css')
 </head>
-{{-- min-h-screen --}}
+
 <body>
     <div class="container-fluid relative mx-auto flex flex-col justify-between mt-20 md:mt-[4.7em]" style="min-height: calc(100vh - 10em)">
         <div>
@@ -35,7 +39,7 @@
     @include('layouts.general.footer')
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
 
     <script src="{{ asset('dist/js/dropify.min.js') }}"></script>
     <script src="{{ asset('js/general/main.js') }}"></script>

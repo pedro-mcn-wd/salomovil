@@ -8,6 +8,10 @@
 
     @vite(['resources/css/app.css','resources/js/app.js'])
 
+    {{-- he tenido que poner los cdns de Tailwindcss y Flowbite porque de lo contrario el despliegue no corre los estilos --}}
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
+
     <title>@yield('title')</title>
 </head>
 <body>
