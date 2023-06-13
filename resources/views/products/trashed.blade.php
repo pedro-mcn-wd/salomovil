@@ -19,23 +19,7 @@
                 <caption class="px-6 py-4 text-lg font-semibold bg-blue-100 text-left text-blue-900 rounded-t-lg">
                     <div class="flex items-center justify-between">
                         <span class="mr-5">{{ __('Listado de productos eliminados') }}</span>
-                        <div class="flex items-center justify-end">
 
-                            {{-- filters --}}
-                            <div class="hidden lg:flex">
-                                @include('products.includes.filters_md')
-                            </div>
-
-                            {{-- buttons restoreAll & deleteFordeall --}}
-                            @if ($products->count())
-                                <div class="ml-5">
-                                    @include('layouts.buttons.dropdown_all_trashed', [
-                                        'route_restore_all' => 'products.restoreAll',
-                                        'route_delete_all' => 'products.forceDeleteAll',
-                                    ])
-                                </div>
-                            @endif
-                        </div>
                     </div>
                 </caption>
                 @if ($products->count())

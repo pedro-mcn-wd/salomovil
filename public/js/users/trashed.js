@@ -61,10 +61,11 @@ if(forceDelete_buttons.length>0){
     });
 }
 
-
 //clear filters
-document.getElementById('btn_reset_filters').addEventListener('click', function () {
+document.getElementById('btn_reset_filters_md').addEventListener('click', clearFilter);
+document.getElementById('btn_reset_filters_sm').addEventListener('click', clearFilter);
 
+function clearFilter() {
     let input_filters = document.querySelectorAll('.input_filter');
     let select_filters = document.querySelectorAll('.select_filter');
 
@@ -75,4 +76,4 @@ document.getElementById('btn_reset_filters').addEventListener('click', function 
     for (const elem of select_filters) {
         elem.selectedIndex = 0;
     }
-});
+};

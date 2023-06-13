@@ -102,7 +102,7 @@
                     <div class="col-span-2">
                         <div class="flex justify-end">
                             <div class="group">
-                                <a id="btn_reset_filters"
+                                <a id="btn_reset_filters_sm"
                                     class="cursor-pointer flex items-center p-2 text-sm font-medium border-2 text-orange-500 border-orange-500 group-hover:text-white bg-white group-hover:bg-orange-500 rounded-lg">
                                     <svg class="w-6 h-6" fill="none" stroke="currentColor"
                                         viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

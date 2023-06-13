@@ -14,29 +14,6 @@ class CategoriesSeeder extends Seeder
      */
     public function run(): void
     {
-        //servicios
-        $cat_serv = Category::create([
-            'name' => 'Servicios',
-            'description' => 'Servicios de fibra y móvil',
-            'code' => 'SERV',
-        ]);
-
-        Subcategory::create([
-            'category_id' => $cat_serv->id,
-            'name' => 'Internet y Móvil',
-            'description' => 'Compañías de Internet y Móvil',
-            'code' => 'SERV_INT'
-        ]);
-
-        Subcategory::create([
-            'category_id' => $cat_serv->id,
-            'name' => 'Reparaciones',
-            'description' => 'Reparaciones',
-            'code' => 'SERV_TELM',
-        ]);
-
-
-
         //moviles
         $cat_mov = Category::create([
             'name' => 'Moviles',

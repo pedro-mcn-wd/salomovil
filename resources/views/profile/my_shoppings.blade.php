@@ -2,7 +2,7 @@
 @section('title', 'Ver mis compras')
 
 @section('content')
-    <div class="flex-grow h-full w-full lg:max-w-screen-lg lg:-min-w-screen-lg mx-auto">
+    <div class="flex-grow h-full w-full px-2 md:px-4 xl:px-0 lg:max-w-screen-lg lg:-min-w-screen-lg mx-auto">
         {{-- Shopping Cart Products --}}
         <div class="w-full border-b border-gray-300 mb-10 mt-6">
             <h3 class="text-xl font-semibold text-blue-800 my-1">Mis pedidos</h3>
